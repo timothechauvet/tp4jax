@@ -1,9 +1,8 @@
 package com.efrei.tp4jax;
 
+import javax.xml.bind.annotation.XmlElement;
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Calendar;
-import java.util.Date;
 
 public class Bird {
     //Variables
@@ -16,6 +15,30 @@ public class Bird {
     static final int FEMALE     = 1;
     static final int NONBINARY  = 2;
 
+    @XmlElement(name = "species")
+    public String getSpecies() {
+        return species;
+    }
+
+    @XmlElement(name = "gender")
+    public String getGender() {
+        switch(gender) {
+            case 1: return "MALE";
+            case 2: return "FEMALE";
+        }
+        return "NONBINARY";
+    }
+
+    @XmlElement(name = "name")
+    public String getName() {
+        return name;
+    }
+
+    @XmlElement(name = "date_of_birth")
+    public String getDate_of_birth() {
+        return date_of_birth.toString();
+    }
+
     //Ctor
     public Bird(int year, int month, int day, String name, int gender, String species) {
         this.date_of_birth  = LocalDate.of(year, month, day);
@@ -26,14 +49,21 @@ public class Bird {
 
     public Bird(int year, int month, int day, int gender) {
         this.date_of_birth  = LocalDate.of(year, month, day);
-        this.species        = "pidgeon";
+        this.species        = "pigeon";
         this.name           = "default";
         this.gender         = gender;
     }
 
+    public Bird(String name) {
+        this.date_of_birth  = LocalDate.now();
+        this.species        = "pigeon";
+        this.name           = name;
+        this.gender         = NONBINARY;
+    }
+
     public Bird() {
         this.date_of_birth  = LocalDate.now();
-        this.species        = "pidgeon";
+        this.species        = "pigeon";
         this.name           = "default";
         this.gender         = NONBINARY;
     }
