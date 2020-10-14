@@ -62,4 +62,8 @@ public class Bird {
         }
         return "{name: \"" + name + "\"; species: \"" + species + "\"; gender: \"" + genderStr + "\"; age: \"" + getAge() + "\"}";
     }
+
+    public boolean correctName(String currName) {
+        return currName.equals(name);
+    }
 }
