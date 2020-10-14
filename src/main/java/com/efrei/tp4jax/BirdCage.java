@@ -31,4 +31,27 @@ public class BirdCage {
         }
         return "No such bird found !";
     }
+
+    public String addBird(Bird bird) {
+        birds.add(bird);
+        return "Bird added";
+    }
+
+    public String removeBird(String name) {
+        for(Bird currBird : birds) {
+            if(currBird.correctName(name)) {
+                birds.remove(currBird);
+                return "Bird removed !";
+            }
+        }
+        return "No such bird found !";
+    }
+
+    public String removeBird(int index) {
+        if(birds.get(index) != null) {
+            birds.remove(index);
+            return "Bird removed !";
+        }
+        return "Index out of bounds !";
+    }
 }
