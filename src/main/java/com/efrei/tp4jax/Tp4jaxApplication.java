@@ -13,7 +13,7 @@ public class Tp4jaxApplication {
 		//SpringApplication.run(Tp4jaxApplication.class, args);
 		InterfaceWebService myServiceWeb = new MyServiceWebImpl();
 
-		Endpoint.publish("http://localhost:8080/WS/MonServiceWeb",myServiceWeb);
+		Endpoint.publish("http://localhost:8080/WS/MonServiceWeb", myServiceWeb);
 	}
 
 }

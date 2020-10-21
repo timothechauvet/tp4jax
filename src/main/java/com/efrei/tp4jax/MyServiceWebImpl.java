@@ -9,13 +9,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
-@WebService(endpointInterface = "com.efrei.tp4jax.MyServiceWeb",
+@WebService(endpointInterface = "com.efrei.tp4jax.InterfaceWebService",
 targetNamespace = "http://localhost:8080/WS/MonServiceWeb/")
 public class MyServiceWebImpl implements InterfaceWebService{
-	@WebMethod
-	public void displayBirds() {
-		//code
+	BirdCage birds;
+
+	public MyServiceWebImpl() {
+		birds = new BirdCage();
+		birds.addBird(new Bird(2000, 01, 01, "josé bové", Bird.MALE, "tiplouf"));
+		birds.addBird(new Bird(2010, 03, 01, "m. oizo", Bird.NONBINARY, "roucool"));
+		birds.addBird(new Bird(2003, 11, 01, "princesse peach", Bird.FEMALE, "la chouette efrei"));
 	}
+
+	@WebMethod
+	public String displayBirds() {
+		return birds.toString();
+	}
+
 	public @WebResult(name="bird") void createEntity(@WebParam(name = "nameImport") String nameImport) {
 		Bird birdy = new Bird(nameImport);
 		System.out.println("Un grand vide dans notre cœur : " + birdy.toString());
