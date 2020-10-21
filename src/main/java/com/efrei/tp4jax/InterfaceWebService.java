@@ -20,12 +20,12 @@ targetNamespace = "http://localhost:8080/WS/MonServiceWeb/")
 })
 public interface InterfaceWebService {
 	@WebMethod(
-	action = "http://localhost:8080/WS/MonServiceWeb/showtime" + "displayBirds")
+	action = "http://localhost:8080/WS/MonServiceWeb/" + "displayBirds")
 
 
 	@WebResult(
 	name = "displayBirdsResponse",
-	targetNamespace = "http://localhost:8080/WS/MonServiceWeb/showtime",
+	targetNamespace = "http://localhost:8080/WS/MonServiceWeb/",
 	partName = "parameters")
 
 	public String displayBirds();

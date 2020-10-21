@@ -19,16 +19,17 @@ public class MyServiceWebImpl implements InterfaceWebService{
 		birds.addBird(new Bird(2000, 01, 01, "josé bové", Bird.MALE, "tiplouf"));
 		birds.addBird(new Bird(2010, 03, 01, "m. oizo", Bird.NONBINARY, "roucool"));
 		birds.addBird(new Bird(2003, 11, 01, "princesse peach", Bird.FEMALE, "la chouette efrei"));
+		System.out.println("Je suis rentré dans le constructeur chéri");
 	}
 
 	@WebMethod
 	public String displayBirds() {
+		System.out.println("Un grand vide dans notre cœur : " + birds.toString());
 		return birds.toString();
 	}
 
-	public @WebResult(name="bird") void createEntity(@WebParam(name = "nameImport") String nameImport) {
-		Bird birdy = new Bird(nameImport);
-		System.out.println("Un grand vide dans notre cœur : " + birdy.toString());
+	public @WebResult(name="displayBirds") void createEntity(@WebParam(name = "nameImport") String nameImport) {
+		System.out.println("Un grand vide dans notre cœur : " + birds.toString());
 	}
 }
 /*@WebService(
