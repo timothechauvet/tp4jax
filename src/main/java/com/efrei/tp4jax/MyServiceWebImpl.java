@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @WebService(endpointInterface = "com.efrei.tp4jax.MyServiceWeb")
-public class MyServiceWebImpl implements MyServiceWeb{
+public class MyServiceWebImpl implements InterfaceWebService{
 	@WebMethod
 	public @WebResult(name="bird") void createEntity(@WebParam(name = "nameImport") String nameImport) {
 		Bird birdy = new Bird(nameImport);
