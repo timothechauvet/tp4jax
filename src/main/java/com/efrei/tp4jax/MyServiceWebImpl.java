@@ -21,10 +21,9 @@ public class MyServiceWebImpl implements InterfaceWebService{
 		birds.addBird(new Bird(2003, 11, 01, "princesse peach", Bird.FEMALE, "la chouette efrei"));
 		System.out.println("Je suis rentré dans le constructeur chéri");
 	}
-
 	@WebMethod
 	public String displayBirds() {
-		System.out.println("Un grand vide dans notre cœur : " + birds.toString());
+		System.out.println("Un grand vide dans notre cœur : ");
 		return birds.toString();
 	}
 

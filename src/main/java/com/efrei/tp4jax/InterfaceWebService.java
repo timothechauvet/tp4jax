@@ -21,13 +21,10 @@ targetNamespace = "http://localhost:8080/WS/MonServiceWeb/")
 public interface InterfaceWebService {
 	@WebMethod(
 	action = "http://localhost:8080/WS/MonServiceWeb/" + "displayBirds")
-
-
 	@WebResult(
-	name = "displayBirdsResponse",
+	name 			= "displayBirdsResponse",
 	targetNamespace = "http://localhost:8080/WS/MonServiceWeb/",
-	partName = "parameters")
-
+	partName 		= "parameters")
 	public String displayBirds();
 	//public void createEntity(@WebParam(name = "nameImport") String nameImport);
 
